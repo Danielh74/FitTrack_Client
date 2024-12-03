@@ -14,7 +14,7 @@ const Card = ({ children, title, customClass }: Props) => {
             </h1>
             {children}
         </div>
-    )
-}
+    );
+};
 
 export default Card
