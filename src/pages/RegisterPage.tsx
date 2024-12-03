@@ -106,9 +106,9 @@ function RegisterPage() {
                                 {...register("gender")}
                                 id="gender"
                                 className="auth-field">
-                                <option value="" className="text-gray-400">--Select gender--</option>
-                                <option value="Male" className="text-black">Male</option>
-                                <option value="Female" className="text-black">Female</option>
+                                <option value="" className="dark:bg-dropDownBg text-gray-500">--Select gender--</option>
+                                <option value="Male" className="dark:bg-dropDownBg dark:text-white text-black">Male</option>
+                                <option value="Female" className=" dark:bg-dropDownBg dark:text-white text-black">Female</option>
                             </select>
                             {errors.gender && <div className="text-customRed text-sm">{errors.gender.message}</div>}
                         </div>
@@ -120,9 +120,9 @@ function RegisterPage() {
                             {...register("goal")}
                             id="goal"
                             className="auth-field">
-                            <option value="" className="text-gray-500" >--Select goal--</option>
-                            <option value="Build Mass" className="text-black">Build Mass</option>
-                            <option value="toning" className="text-black">toning</option>
+                            <option value="" className="dark:bg-dropDownBg text-gray-500" >--Select goal--</option>
+                            <option value="Build Mass" className="dark:bg-dropDownBg dark:text-white text-black">Build Mass</option>
+                            <option value="toning" className="dark:bg-dropDownBg dark:text-white text-black">toning</option>
                         </select>
                         {errors.goal && <div className="text-customRed text-sm">{errors.goal.message}</div>}
                     </div>
