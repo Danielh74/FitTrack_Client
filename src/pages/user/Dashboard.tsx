@@ -114,9 +114,17 @@ const Dashboard = () => {
                 </figure>
                 <figure className='flex flex-col md:flex-row lg:flex-col pt-3 lg:pt-0 flex-grow sm:w-1/2 lg:w-1/4 ps-1 gap-3'>
                     <Card title='Tip' customClass='dashboard-card h-full '>
-                        <span>Your recommended daily water intake is approx.
-                            <b className='ms-1 text-customBlue dark:text-customGold'>{(weightList[weightList.length - 1]?.value * 0.04).toFixed(1)} liters.</b>
-                        </span>
+                        {weightList ?
+                            <span>
+                                Your recommended daily water intake is approx.
+                                <b className='ms-1 text-customBlue dark:text-customGold'>{(weightList[weightList.length - 1]?.value * 0.04).toFixed(1)} liters.</b>
+                            </span>
+                            :
+                            <span>
+                                Enter your weight to know what is your daily water intake.
+                            </span>
+                        }
+
                     </Card>
                     <Card title='Tip' customClass='dashboard-card h-full'>
                         <span>Weighing should be done <b className='text-customBlue dark:text-customGold'>once a week</b> in the morning after using the bathroom.</span>
