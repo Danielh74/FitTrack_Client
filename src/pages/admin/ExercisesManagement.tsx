@@ -62,10 +62,10 @@ function ExercisesManagement() {
                     <Loader />
                 </div>
             )}
-            <button className="dark:bg-customGreen font-medium py-1 px-2 rounded-md" onClick={() => setShowModal(true)}>ADD</button>
+            <button className="dark:bg-customGreen bg-green-500 font-medium py-1 px-2 rounded-md" onClick={() => setShowModal(true)}>ADD</button>
             <div className="overflow-x-auto w-full rounded-md border mt-2 border-gray-300 shadow-md dark:border-black">
                 <table className="w-full text-sm text-center font-medium dark:text-white">
-                    <thead className="bg-gray-200 dark:bg-[#2E2E2E] uppercase border-b">
+                    <thead className="bg-gray-200 dark:bg-dropDownBg uppercase border-b">
                         <tr>
                             <th className="flex justify-center py-3">
                                 <Dropdown
