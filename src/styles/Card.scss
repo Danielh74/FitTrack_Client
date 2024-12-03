@@ -1,0 +1,91 @@
+.card {
+    padding: 16px;
+    border-radius: 8px;
+    background-color: white;
+}
+
+.card h1 {
+    color: #274C77;
+    font-size: 1.3rem;
+    line-height: 1.5rem;
+    font-weight: 700;
+}
+
+.dark .card {
+    h1 {
+        color: #FFD700;
+    }
+
+    border-width: 2px;
+    border-color: #FFD700;
+    background-color: #404040;
+    color: #E7ECEF;
+}
+
+.outer-card {
+    background-color: #E7ECEF;
+    border-color: #E7ECEF;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    padding: 12px;
+    border-width: 1px;
+    border-radius: 12px;
+    --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+    --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.dark .outer-card {
+    background-color: #666;
+    border-color: #4b5563;
+}
+
+.auth-card {
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    backdrop-filter: blur(4px);
+    min-width: 300px;
+    max-width: 448px;
+
+    @media (min-width: 768px) {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+}
+
+.dark .auth-card {
+    border-width: 1px;
+    border-color: #404040;
+    background-color: rgba($color: #2E2E2E, $alpha: 0.5);
+}
+
+.plan-checkbox {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.dark .plan-checkbox {
+    background-color: #848484;
+}
+
+.plan-checkbox:checked {
+    border: 1px, #374151, solid;
+    clip-path: circle(50% at 50% 50%);
+    background-color: rgb(0, 160, 0);
+}
+
+.dark .plan-checkbox:checked {
+    border: 1px, #374151, solid;
+    clip-path: circle(50% at 50% 50%);
+    background-color: #9ACD32;
+}
+
+.dark .plan-checkbox:focus {
+    --tw-ring-opacity: 1;
+    --tw-ring-color: #ffd700;
+}

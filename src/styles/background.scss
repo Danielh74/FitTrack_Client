@@ -1,0 +1,66 @@
+.app-bg {
+    background-color: #e4e4e4;
+    min-height: 100dvh;
+    height: fit-content;
+    min-width: 100%;
+    width: fit-content;
+}
+
+.dark .app-bg {
+    background-color: #C5C5C5
+}
+
+.home-bg {
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 4rem;
+    background-image: url('../assets/background2.jpeg');
+    background-size: cover;
+    background-position: center;
+    top: 4rem;
+    min-height: 100vh;
+    height: fit-content;
+
+    @media (min-width: 768px) {
+        background-image: url('../assets/background.jpg');
+    }
+}
+
+.login-bg {
+    background-image: url('../assets/background2.jpeg');
+    background-size: cover;
+    background-position: center;
+    height: 100dvh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-bg {
+    background-image: url('../assets/background2.jpeg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100dvh;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.body-img {
+    height: 70vh;
+    width: 250px;
+}
+
+.tooltip {
+    background-color: #e4e4e4;
+    color: #274C77;
+    padding: 8px;
+    border-radius: 2px;
+}
+
+.dark .tooltip {
+    background-color: #666;
+    color: white;
+}

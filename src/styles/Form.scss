@@ -1,0 +1,192 @@
+.profile-field {
+    width: 3rem;
+    text-align: center;
+    background-color: rgba($color: rgb(255, 255, 255), $alpha: 0);
+}
+
+.profile-select:enabled {
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;
+    border-radius: 0.325rem;
+    margin-left: 0.325rem;
+}
+
+.dark .profile-select:enabled {
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;
+    border-radius: 0.325rem;
+    margin-left: 0.325rem;
+    background-color: rgba(70, 70, 70, 0.3);
+}
+
+.profile-field:enabled {
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;
+    border-radius: 4px;
+    margin-left: 0.325rem;
+}
+
+.dark .profile-field:enabled {
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;
+    border-radius: 0.325rem;
+    margin-left: 0.325rem;
+    background-color: rgba(70, 70, 70, 0.3);
+}
+
+.auth-field {
+    background-color: #F9FAFB;
+    border-width: 2px;
+    border-color: #9CA3AF;
+    color: #111827;
+    font-size: 0.875rem;
+    border-radius: 0.5rem;
+    display: block;
+    width: 100%;
+    padding: 0.625rem;
+    outline: none;
+    transition: border-color 0.1s, box-shadow 0.1s;
+}
+
+
+
+.dark .auth-field {
+    background-color: rgba($color: #404040, $alpha: 0.7);
+    border-color: #404040;
+    color: #FFFFFF;
+}
+
+.dark .auth-field::placeholder {
+    color: #9CA3AF;
+}
+
+.button {
+    border-radius: 0.5rem;
+    font-weight: 600;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.profile-button-edit {
+    border-radius: 0.5rem;
+    font-weight: 600;
+    background: #8B8C89;
+    color: black;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.dark .profile-button-edit {
+    border-radius: 0.5rem;
+    font-weight: 600;
+    background: #454644;
+    color: whitesmoke;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.profile-button-confirm {
+    border-radius: 0.5rem;
+    font-weight: 600;
+    background: #274C77;
+    color: whitesmoke;
+    padding: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.dark .profile-button-confirm {
+    border-radius: 0.5rem;
+    font-weight: 600;
+    background: #13263C;
+    color: whitesmoke;
+    padding: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.plan-field {
+    display: flex;
+    flex-direction: column;
+    border-width: 1px;
+    border-color: gray;
+    border-radius: 6px;
+    padding: 8px;
+}
+
+.dark .plan-field {
+    border-width: 2px;
+    border-color: white;
+}
+
+.meal-form {
+    margin-top: 8px;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+}
+
+.meal-form.open {
+    max-height: 600px;
+    opacity: 1;
+}
+
+.meal-field {
+    display: flex;
+    flex-direction: column;
+    border-width: 1px;
+    border-color: gray;
+    border-radius: 6px;
+    padding: 8px;
+    border-width: 2px;
+    background-color: rgba($color: #848484, $alpha: 0.2);
+    margin: 0px 2px;
+}
+
+.dark .meal-field {
+    border-color: #E7ECEF;
+}
+
+.weight-form {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+}
+
+.weight-form.open {
+    max-height: 60px;
+    opacity: 1;
+}
+
+.save-button {
+    background: linear-gradient(130deg, #274C77, #76b3f9);
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.save-button:hover {
+    background: none;
+    background-color: #76b3f9;
+}
+
+.dark .save-button {
+    background: linear-gradient(130deg, #FFD700, #7F6836);
+    color: black;
+}
+
+.dark .save-button:hover {
+    background: none;
+    background-color: #A08200;
+}
