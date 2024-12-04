@@ -86,13 +86,13 @@ const Profile = () => {
     return (
         <div>
             <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
-                <div className="flex flex-col lg:flex-row lg:space-x-5">
-                    <section className="flex flex-col lg:w-1/2 space-y-4">
+                <div className="flex flex-col lg:flex-row lg:gap-3">
+                    <section className="flex flex-col lg:w-1/2 gap-3">
                         <Card title="User info" customClass="profile-card h-1/2">
                             <h1 className="font-medium text-2xl text-center mb-4">
                                 {currentUser.firstName + " " + currentUser.lastName}
                             </h1>
-                            <main className="space-y-9">
+                            <main className="flex flex-col gap-7">
                                 <div className="flex justify-evenly">
                                     <span>
                                         <label>Age:</label>
@@ -106,7 +106,7 @@ const Profile = () => {
                                         {currentUser.gender}
                                     </span>
                                 </div>
-                                <div className="flex ms-5 mt-5 justify-around mb-2 ">
+                                <div className="flex justify-around ">
                                     <span>
                                         <label>City: </label>
                                         <input
@@ -151,25 +151,25 @@ const Profile = () => {
 
                     <section className="flex flex-col lg:w-1/2 mt-5 lg:mt-0">
                         <Card title="Measurments" customClass="profile-card">
-                            <div className="flex flex-row justify-center">
-                                <div className="flex flex-col">
-                                    <span className="flex mt-16 border-b-2 border-black">
+                            <div className="flex flex-col gap-4 sm:gap-0 sm:flex-row justify-center">
+                                <div className="flex gap-4 sm:gap-0 flex-col">
+                                    <span className="flex sm:mt-16 border-b-2 border-black">
                                         <label>Neck:</label>
                                         <input  {...register("neckCircumference")} disabled={isDisabled} className='profile-field' /> cm
                                     </span>
-                                    <span className="flex mt-9 border-b-2 border-black">
+                                    <span className="flex sm:mt-9 border-b-2 border-black">
                                         <label>Arm:</label>
                                         <input  {...register("armCircumference")} disabled={isDisabled} className="profile-field" /> cm
                                     </span>
-                                    <span className="flex mt-6 border-b-2 border-black">
+                                    <span className="flex sm:mt-6 border-b-2 border-black">
                                         <label>Abdominal:</label>
                                         <input  {...register("abdominalCircumference")} disabled={isDisabled} className="profile-field" /> cm
                                     </span>
-                                    <span className="flex mt-8 border-b-2 border-black">
+                                    <span className="flex sm:mt-8 border-b-2 border-black">
                                         <label>Thighs:</label>
                                         <input  {...register("thighsCircumference")} disabled={isDisabled} className="profile-field" /> cm
                                     </span>
-                                    <span className="flex mt-32">
+                                    <span className="flex sm:mt-32">
                                         <div className="pt-1 pr-1">
                                             <GiBodyHeight />
                                         </div>
@@ -177,23 +177,23 @@ const Profile = () => {
                                         <input  {...register("height")} disabled={isDisabled} className="profile-field" /> cm
                                     </span>
                                 </div>
-                                <div className="flex">
+                                <div className="hidden sm:flex">
                                     <img src={bodyImage} alt="body" className="body-img" />
                                 </div>
-                                <div className="flex flex-col">
-                                    <span className="flex mt-28 border-b-2 border-black">
+                                <div className="flex gap-4 sm:gap-0 flex-col">
+                                    <span className="flex sm:mt-28 border-b-2 border-black">
                                         <label>Chest:</label>
                                         <input  {...register("pecsCircumference")} disabled={isDisabled} className="profile-field" /> cm
                                     </span>
-                                    <span className="flex mt-4 border-b-2 border-black">
+                                    <span className="flex sm:mt-4 border-b-2 border-black">
                                         <label>Waist:</label>
                                         <input  {...register("waistCircumference")} disabled={isDisabled} className="profile-field" /> cm
                                     </span>
-                                    <span className="flex mt-4 border-b-2 border-black">
+                                    <span className="flex sm:mt-4 border-b-2 border-black">
                                         <label>Hips:</label>
                                         <input  {...register("hipsCircumference")} disabled={isDisabled} className="profile-field" /> cm
                                     </span>
-                                    <span className="flex mt-40">
+                                    <span className="flex sm:mt-40">
                                         <div className="pt-1 pr-1">
                                             <GiWeightScale />
                                         </div>
@@ -205,7 +205,7 @@ const Profile = () => {
                         </Card>
                     </section>
                 </div>
-                <div className="flex justify-center my-3 ml-16 ">
+                <div className="flex justify-center my-3">
                     {isDisabled && <button
                         className="save-button px-2"
                         type="button"
