@@ -56,7 +56,6 @@ const MealCreationModal = ({ show, onClose, menuId, meals, onCreate }: Props) =>
         setIsLoading(true);
 
         menuService.createMeal(data).then((response) => {
-            console.log(response);
             onCreate(response.data);
             reset();
             onClose();

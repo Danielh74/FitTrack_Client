@@ -42,7 +42,6 @@ function AuthProvider({ children }: Props) {
         const fetchUserData = (storedToken) => {
             auth.getCurrentUser(storedToken)
                 .then((userData) => {
-                    console.log(userData);
                     setToken(storedToken);
                     const payload: TokenPayload = jwtDecode<TokenPayload>(storedToken);
                     setIsAdmin(payload.role && payload.role === "Admin")

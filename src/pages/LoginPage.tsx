@@ -37,7 +37,6 @@ const LoginPage = () => {
         setIsLoading(true);
 
         auth.login(data).then((response) => {
-            console.log(response);
             toast.success("Login Successful");
             handleLogin(response.token, response.user);
         }).catch((error) => {

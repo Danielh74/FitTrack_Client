@@ -58,7 +58,6 @@ const PlanCard = ({ plan }: Prop) => {
             .catch((error) => {
                 const errorMsg = handleApiErrors(error);
                 toast.error(errorMsg);
-                console.error("Update Plan Error:", error);
             })
             .finally(() => {
                 setIsLoading(false);

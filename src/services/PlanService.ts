@@ -73,7 +73,6 @@ const updatePlanComplete = ({ id, name, isCompleted }: UpdatedPlanProps) => {
         }).then((response) => {
             return response;
         }).catch((error) => {
-            console.log(error);
             throw error;
         });
 };

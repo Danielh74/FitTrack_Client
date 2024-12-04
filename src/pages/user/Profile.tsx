@@ -73,7 +73,6 @@ const Profile = () => {
 
         auth.updateCurrentUser(updatedValues).then((response) => {
             toast.success('Measurements updated successfully');
-            console.log(response.data);
             reloadUser(response.data);
         }).catch((error) => {
             const errorMsg = handleApiErrors(error);

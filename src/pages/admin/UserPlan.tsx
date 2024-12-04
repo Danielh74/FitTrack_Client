@@ -57,8 +57,6 @@ function UserPlan() {
                 exerciseService.getAllExercises(),
                 exerciseService.getAllMuscleGroups()
             ]).then(([planResponse, exercisesResponse, muscleGroupsResponse]) => {
-                console.log(planResponse.data, exercisesResponse.data, muscleGroupsResponse.data);
-
                 const sortedPlan: Plan = {
                     ...planResponse.data,
                     planDetails: [...planResponse.data.planDetails].sort((a, b) => a.orderInPlan - b.orderInPlan)
@@ -174,7 +172,6 @@ function UserPlan() {
             }
 
             planService.createPlanExercise(requestData).then((response) => {
-                console.log(response);
                 if (response.status === 201) {
                     handleSuccessRequest("Plan exercise created!");
 
