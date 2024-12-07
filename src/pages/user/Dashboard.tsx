@@ -108,7 +108,7 @@ const Dashboard = () => {
                     </Card>
                 </figure>
                 <figure className='flex flex-col flex-grow pt-3 md:pt-0 sm:w-1/2 md:w-1/3 lg:w-1/4 px-1'>
-                    <Card customClass='dashboard-card text-xs'>
+                    <Card customClass='dashboard-card h-full sm:text-xs md:text-sm lg:text-md'>
                         <Calendar />
                     </Card>
                 </figure>
