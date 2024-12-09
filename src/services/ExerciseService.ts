@@ -5,6 +5,7 @@ const baseUrl = import.meta.env.VITE_BASE_URL;
 type newExercise = {
     name?: string;
     muscleGroupName?: string;
+    videoFile?: File;
 }
 
 const getAllExercises = () => {
@@ -23,6 +24,7 @@ const createExercise = (data: newExercise) => {
     return axios.post(`${baseUrl}/exercises/admin`, data, {
         headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
+            "Content-Type": "multipart/form-data"
         },
     }).then((response) => {
         return response;

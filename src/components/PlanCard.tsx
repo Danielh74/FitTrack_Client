@@ -9,6 +9,7 @@ import { FaRegCirclePlay } from "react-icons/fa6";
 import Card from "./Card";
 import Loader from "../components/Loader";
 import useAuth from "../hooks/useAuth";
+import ExerciseVideoModal from "../Modals/ExerciseVideoModal";
 
 type Prop = {
     plan: Plan;
@@ -24,6 +25,8 @@ const PlanCard = ({ plan }: Prop) => {
     const [error, setError] = useState("");
     const [inputOpen, setInputOpen] = useState(false);
     const [openAnimation, setOpenAnimation] = useState(false);
+    const [openVideo, setOpenVideo] = useState(false);
+    const [videoURL, setVideoURL] = useState("");
 
     useEffect(() => {
         setUserPlan(plan);
@@ -154,7 +157,7 @@ const PlanCard = ({ plan }: Prop) => {
                             </div>
                         </div>
                         <div className="flex flex-col justify-center">
-                            <button className="text-black dark:text-white text-2xl">
+                            <button className="text-black dark:text-white text-2xl" onClick={() => { setOpenVideo(true); setVideoURL(ex.videoURL); }}>
                                 <FaRegCirclePlay />
                             </button>
                         </div>
@@ -191,6 +194,11 @@ const PlanCard = ({ plan }: Prop) => {
                     )}
                 </Card>
             ))}
+            <ExerciseVideoModal
+                show={openVideo}
+                onClose={() => setOpenVideo(false)}
+                videoURL={videoURL}
+            />
         </div>
     );
 };

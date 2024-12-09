@@ -9,6 +9,8 @@ import ExerciseCreationModal from "../../Modals/ExerciseCreationModal";
 import { Dropdown } from "flowbite-react";
 import { IoIosArrowDown } from "react-icons/io";
 import "/src/styles/Toast.scss";
+import { FaRegCirclePlay } from "react-icons/fa6";
+import ExerciseVideoModal from "../../Modals/ExerciseVideoModal";
 
 function ExercisesManagement() {
     const [exercises, setExercises] = useState<Exercise[]>([]);
@@ -16,6 +18,8 @@ function ExercisesManagement() {
     const [selectedMuscleGroup, setSelectedMuscleGroup] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const [showModal, setShowModal] = useState(false);
+    const [openVideo, setOpenVideo] = useState(false);
+    const [videoURL, setVideoURL] = useState("");
 
     useEffect(() => {
         setIsLoading(true);
@@ -23,6 +27,7 @@ function ExercisesManagement() {
             exerciseService.getAllExercises(),
             exerciseService.getAllMuscleGroups()
         ]).then(([exercisesResponse, muscleGroupsResponse]) => {
+            console.log(exercisesResponse.data);
             setExercises(exercisesResponse.data);
             setMuscleGroups(muscleGroupsResponse.data);
         }).catch((error) => {
@@ -81,6 +86,7 @@ function ExercisesManagement() {
                                 </Dropdown>
                             </th>
                             <th className="py-1">Exercise</th>
+                            <th className="py-1">Video</th>
                             <th className="py-1">Actions</th>
                         </tr>
                     </thead>
@@ -94,13 +100,21 @@ function ExercisesManagement() {
                                     <td className="px-4 py-3">
                                         {ex.muscleGroupName}
                                     </td>
-                                    <td className="px-4 py-3">{ex.name}</td>
+                                    <td className="px-4 py-3">
+                                        {ex.name}
+                                    </td>
+                                    <td className="px-4 py-3 text-xl justify-items-center">
+                                        <button onClick={() => { setOpenVideo(true); setVideoURL(ex.videoURL) }}>
+                                            <FaRegCirclePlay />
+                                        </button>
+                                    </td>
                                     <td>
                                         <button onClick={() => deleteItem("exercise", handleExerciseDelete, ex.id)}>
                                             <MdDelete className="text-xl hover:text-2xl hover:text-customRed transition-all duration-75" />
                                         </button>
                                     </td>
                                 </tr>
+
                             )
                             : muscleGroups.map((mg) => (
                                 exercises.map(ex => ex.muscleGroupName === mg.name &&
@@ -111,7 +125,14 @@ function ExercisesManagement() {
                                         <td className="px-4 py-3">
                                             {ex.muscleGroupName}
                                         </td>
-                                        <td className="px-4 py-3">{ex.name}</td>
+                                        <td className="px-4 py-3">
+                                            {ex.name}
+                                        </td>
+                                        <td className="px-4 py-3 text-xl justify-items-center">
+                                            <button onClick={() => { setOpenVideo(true); setVideoURL(ex.videoURL) }}>
+                                                <FaRegCirclePlay />
+                                            </button>
+                                        </td>
                                         <td>
                                             <button onClick={() => deleteItem("exercise", handleExerciseDelete, ex.id)}>
                                                 <MdDelete className="text-xl hover:text-2xl hover:text-customRed transition-all duration-75" />
@@ -129,6 +150,11 @@ function ExercisesManagement() {
                 muscleGroups={muscleGroups}
                 exercises={exercises}
                 onCreate={handleExerciseCreate}
+            />
+            <ExerciseVideoModal
+                show={openVideo}
+                onClose={() => setOpenVideo(false)}
+                videoURL={videoURL}
             />
         </div>
     );

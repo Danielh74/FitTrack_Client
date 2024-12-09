@@ -10,6 +10,7 @@ export interface PlanDetails {
     id: number
     orderInPlan: number
     exerciseName: string
+    videoURL: string
     reps: number
     sets: number
     currentWeight: number
@@ -20,6 +21,7 @@ export interface Exercise {
     id: number
     name: string
     muscleGroupName: string
+    videoURL: string
 };
 
 export interface MuscleGroup {
