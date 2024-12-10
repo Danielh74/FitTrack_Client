@@ -27,7 +27,6 @@ function ExercisesManagement() {
             exerciseService.getAllExercises(),
             exerciseService.getAllMuscleGroups()
         ]).then(([exercisesResponse, muscleGroupsResponse]) => {
-            console.log(exercisesResponse.data);
             setExercises(exercisesResponse.data);
             setMuscleGroups(muscleGroupsResponse.data);
         }).catch((error) => {
@@ -129,7 +128,7 @@ function ExercisesManagement() {
                                             {ex.name}
                                         </td>
                                         <td className="px-4 py-3 text-xl justify-items-center">
-                                            <button onClick={() => { setOpenVideo(true); setVideoURL(ex.videoURL) }}>
+                                            <button className={`${!ex.videoURL && 'hidden'}`} onClick={() => { setOpenVideo(true); setVideoURL(ex.videoURL) }}>
                                                 <FaRegCirclePlay />
                                             </button>
                                         </td>

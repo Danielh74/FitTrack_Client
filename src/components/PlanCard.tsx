@@ -157,7 +157,7 @@ const PlanCard = ({ plan }: Prop) => {
                             </div>
                         </div>
                         <div className="flex flex-col justify-center">
-                            <button className="text-black dark:text-white text-2xl" onClick={() => { setOpenVideo(true); setVideoURL(ex.videoURL); }}>
+                            <button className={`text-black dark:text-white text-2xl ${!ex.videoURL && 'hidden'}`} onClick={() => { setOpenVideo(true); setVideoURL(ex.videoURL); }}>
                                 <FaRegCirclePlay />
                             </button>
                         </div>
