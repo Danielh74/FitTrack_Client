@@ -13,8 +13,10 @@ import { deleteItem, handleApiErrors } from "../../utils/Helpers";
 import Loader from "../../components/Loader";
 import { UsersList } from "../../models/User";
 import "/src/styles/Toast.scss";
+import useAuth from '../../hooks/useAuth';
 
 function Users() {
+    const { currentUser } = useAuth();
     const { users, reloadUsers } = useAdmin();
     const navigate = useNavigate();
     const [usersList, setUsersList] = useState<UsersList[]>([]);
@@ -61,7 +63,7 @@ function Users() {
                             </tr>
                         </thead>
                         <tbody>
-                            {usersList.map((user) => (
+                            {usersList.filter(u => u.id !== currentUser.id).map((user) => (
                                 <tr
                                     key={user.id}
                                     className="odd:bg-white odd:dark:bg-mediumBg even:bg-gray-100 even:dark:bg-darkBg border-t dark:border-gray-700"
@@ -73,7 +75,7 @@ function Users() {
                                     <td className="px-4 py-3">{user.gender}</td>
                                     <td className="px-4 py-3">{user.age}</td>
                                     <td className="px-4 py-3">{user.city}</td>
-                                    <td className="px-4 py-3">{user.healthDeclarationId ? 'Yes' : 'No'}</td>
+                                    <td className={`px-4 py-3 ${!user.healthDeclarationId && 'dark:text-customRed text-red-500'}`}>{user.healthDeclarationId ? 'Yes' : 'No'}</td>
                                     <td className="px-4 py-3">{user.registrationDate}</td>
                                     <td>
                                         <Dropdown className="dark:bg-dropDownBg" dismissOnClick={true} renderTrigger={() => (

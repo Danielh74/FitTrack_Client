@@ -3,6 +3,7 @@ import { Plan } from "./Plan"
 import { Weight } from "./Weight"
 
 export interface User {
+    id: number
     firstName: string
     lastName: string
     age: number
@@ -50,6 +51,23 @@ export interface TokenPayload {
     nbf: number
     role: string
 };
+
+export interface HealthDeclaration {
+    id: number
+    heartDisease: boolean
+    chestPainInRest: boolean
+    chestPainInDaily: boolean
+    chestPainInActivity: boolean
+    dizzy: boolean
+    lostConsciousness: boolean
+    asthmaTreatment: boolean
+    shortBreath: boolean
+    familyDeathHeartDisease: boolean
+    familySuddenEarlyAgeDeath: boolean
+    trainUnderSupervision: boolean
+    chronicIllness: boolean
+    isPregnant: boolean
+}
 
 
 

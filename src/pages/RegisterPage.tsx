@@ -77,7 +77,7 @@ function RegisterPage() {
                                 id="firstName"
                                 placeholder="John"
                                 className="auth-field" />
-                            {errors.firstName && <div className="text-customRed text-sm">{errors.firstName.message}</div>}
+                            {errors.firstName && <div className="text-red-500 dark:text-customRed text-sm">{errors.firstName.message}</div>}
                         </div>
                         <div className="flex flex-col gap-2 w-1/2 ms-2 text-lg my-2">
                             <label className="text-sm font-medium text-gray-900 dark:text-white" htmlFor="lastName">Last Name</label>
@@ -86,7 +86,7 @@ function RegisterPage() {
                                 id="lastName"
                                 placeholder="Doe"
                                 className="auth-field" />
-                            {errors.lastName && <div className="text-customRed text-sm">{errors.lastName.message}</div>}
+                            {errors.lastName && <div className="text-red-500 dark:text-customRed text-sm">{errors.lastName.message}</div>}
                         </div>
                     </div>
                     <div className="flex flex-row">
@@ -98,7 +98,7 @@ function RegisterPage() {
                                 id="age"
                                 placeholder="18"
                                 className="auth-field" />
-                            {errors.age && <div className="text-customRed text-sm">{errors.age.message}</div>}
+                            {errors.age && <div className="text-red-500 dark:text-customRed text-sm">{errors.age.message}</div>}
                         </div>
                         <div className="flex flex-col gap-2 w-1/2 ms-4 text-lg my-2">
                             <label className="text-sm font-medium text-gray-900 dark:text-white" htmlFor="gender">Gender</label>
@@ -110,7 +110,7 @@ function RegisterPage() {
                                 <option value="Male" className="dark:bg-dropDownBg dark:text-white text-black">Male</option>
                                 <option value="Female" className=" dark:bg-dropDownBg dark:text-white text-black">Female</option>
                             </select>
-                            {errors.gender && <div className="text-customRed text-sm">{errors.gender.message}</div>}
+                            {errors.gender && <div className="text-red-500 dark:text-customRed text-sm">{errors.gender.message}</div>}
                         </div>
                     </div>
 
@@ -124,7 +124,7 @@ function RegisterPage() {
                             <option value="Build Mass" className="dark:bg-dropDownBg dark:text-white text-black">Build Mass</option>
                             <option value="toning" className="dark:bg-dropDownBg dark:text-white text-black">toning</option>
                         </select>
-                        {errors.goal && <div className="text-customRed text-sm">{errors.goal.message}</div>}
+                        {errors.goal && <div className="text-red-500 dark:text-customRed text-sm">{errors.goal.message}</div>}
                     </div>
                     <div className="flex flex-col gap-2 items-start my-2">
                         <label className="text-sm font-medium text-gray-900 dark:text-white" htmlFor="email">Email</label>
@@ -135,7 +135,7 @@ function RegisterPage() {
                             name="email"
                             placeholder="name@company.com"
                             className="auth-field" />
-                        {errors.email && <div className="text-customRed text-sm">{errors.email.message}</div>}
+                        {errors.email && <div className="text-red-500 dark:text-customRed text-sm">{errors.email.message}</div>}
                     </div>
                     <div className="flex flex-col gap-2 items-start my-2">
                         <label className="text-sm font-medium text-gray-900 dark:text-white" htmlFor="password">Password</label>
@@ -146,7 +146,7 @@ function RegisterPage() {
                             type="password"
                             placeholder="••••••••"
                             className="auth-field" />
-                        {errors.password && <div className="text-customRed text-sm">{errors.password.message}</div>}
+                        {errors.password && <div className="text-red-500 dark:text-customRed text-sm">{errors.password.message}</div>}
                     </div>
                     <div className="flex flex-col gap-2 items-start my-2">
                         <label htmlFor="validatePassword" className="text-sm font-medium text-gray-900 dark:text-white">Validate Password</label>
@@ -157,7 +157,7 @@ function RegisterPage() {
                             type="password"
                             placeholder="••••••••"
                             className="auth-field" />
-                        {errors.validatePassword && <div className="text-customRed text-sm">{errors.validatePassword.message}</div>}
+                        {errors.validatePassword && <div className="text-red-500 dark:text-customRed text-sm">{errors.validatePassword.message}</div>}
                     </div>
                     <div className="flex flex-col items-start my-3">
                         <div className="flex flex-row">
@@ -173,7 +173,7 @@ function RegisterPage() {
                                 <button onClick={() => setShowModal(true)} className="font-medium text-blue-600 hover:underline dark:text-customGold"> Terms and Conditions</button>
                             </div>
                         </div>
-                        {errors.agreedToTerms && <div className="text-customRed text-sm flex flex-row">{errors.agreedToTerms.message}</div>}
+                        {errors.agreedToTerms && <div className="text-red-500 dark:text-customRed text-sm flex flex-row">{errors.agreedToTerms.message}</div>}
                     </div>
                     {isLoading ? <Loader />
                         : <button type="submit" className="w-full save-button">Register</button>}

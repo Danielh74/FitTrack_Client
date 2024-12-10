@@ -18,6 +18,7 @@ import UserApp from "../UserApp";
 import UserPlan from "../pages/admin/UserPlan";
 import UserMenu from "../pages/admin/UserMenu";
 import ExercisesManagement from "../pages/admin/ExercisesManagement";
+import HealthDeclarationPage from "../pages/user/HealthDeclarationPage";
 
 export const router = createBrowserRouter([
     {
@@ -35,6 +36,7 @@ export const router = createBrowserRouter([
                     { path: "plans", element: <Plans /> },
                     { path: "profile", element: <Profile /> },
                     { path: "menu", element: <MenuPage /> },
+                    { path: "healthDeclaration", element: <HealthDeclarationPage /> },
                 ]
             },
             {

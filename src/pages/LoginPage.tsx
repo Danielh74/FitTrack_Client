@@ -59,7 +59,7 @@ const LoginPage = () => {
                             id="email"
                             placeholder="name@company.com"
                             className="auth-field focus:ring-2 focus:ring-customBlue dark:focus:ring-customGold focus:border-none" />
-                        {errors.email && <div className="text-customRed text-sm">{errors.email.message}</div>}
+                        {errors.email && <div className="text-red-500 dark:text-customRed text-sm">{errors.email.message}</div>}
                     </div>
                     <div className="flex flex-col items-start my-2">
                         <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white" htmlFor="password">Password</label>
@@ -69,7 +69,7 @@ const LoginPage = () => {
                             type="password"
                             placeholder="••••••••"
                             className="auth-field focus:ring-2 focus:ring-customBlue dark:focus:ring-customGold focus:border-none" />
-                        {errors.password && <div className="text-customRed text-sm">{errors.password.message}</div>}
+                        {errors.password && <div className="text-red-500 dark:text-customRed text-sm">{errors.password.message}</div>}
                     </div>
                     {isLoading ? <Loader />
                         : <button type="submit" className="w-full mt-4 save-button">Login</button>}

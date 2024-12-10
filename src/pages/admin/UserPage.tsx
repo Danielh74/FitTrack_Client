@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { auth } from '../../services/UserService'
 import { Link, useParams, useLocation, useNavigate } from 'react-router-dom'
-import { User } from '../../models/User'
+import { HealthDeclaration, User } from '../../models/User'
 import { handleApiErrors } from '../../utils/Helpers'
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -13,6 +13,8 @@ import { FiPlus } from "react-icons/fi";
 import PlanCreationModal from '../../Modals/PlanCreationModal'
 import { menuService } from '../../services/MenuSevice'
 import "/src/styles/Toast.scss";
+import { healthDecService } from '../../services/HealthDeclarationService'
+import ViewHealthDeclarationModal from '../../Modals/ViewHealthDeclarationModal'
 
 type PlanResponse = {
     plan: Plan;
@@ -26,7 +28,9 @@ const UserPage = () => {
     const userId = parseInt(userIdString);
     const [user, setUser] = useState<User | null>(null);
     const [isLoading, setIsLoading] = useState(false);
-    const [showModal, setShowModal] = useState(false);
+    const [showPlanModal, setShowPlanModal] = useState(false);
+    const [showHealthDecModal, setShowHealthDecModal] = useState(false);
+    const [healthDeclaration, setHealthDeclaration] = useState<HealthDeclaration | null>(null);
 
     useEffect(() => {
         const fetchUser = () => {
@@ -49,6 +53,7 @@ const UserPage = () => {
 
         return () => {
             setUser(null);
+            setHealthDeclaration(null);
         };
     }, [userId, location, navigate]);
 
@@ -64,6 +69,16 @@ const UserPage = () => {
             const message = response.data.message;
             setUser(prev => ({ ...prev, menu: menu }));
             toast.success(message);
+        }).catch((error) => {
+            const errorMsg = handleApiErrors(error);
+            toast.error(errorMsg);
+        });
+    };
+
+    const healthDecView = () => {
+        healthDecService.getHealthDecByUserId(userId).then((response) => {
+            setHealthDeclaration(response.data);
+            setShowHealthDecModal(true);
         }).catch((error) => {
             const errorMsg = handleApiErrors(error);
             toast.error(errorMsg);
@@ -96,6 +111,13 @@ const UserPage = () => {
                                         <span className='border-2 border-gray-300 rounded-md text-center'>{user.email}</span>
                                         <label className="font-medium text-customBlue dark:text-customGold">Phone number:</label>
                                         <span className='border-2 border-gray-300 rounded-md text-center'>{user.phoneNumber ?? 'N/A'} </span>
+                                        <div className='flex justify-between mt-4'>
+                                            <span className="font-medium text-customBlue dark:text-customGold w-full">Health Declaration:</span>
+                                            {user.healthDeclarationId
+                                                ? <button className='border-2 border-gray-300 rounded-md text-center px-2' onClick={healthDecView}>View</button>
+                                                : <span className='text-center self-center'>N/A</span>
+                                            }
+                                        </div>
                                     </div>
                                 </Card>
                             </article>
@@ -170,7 +192,7 @@ const UserPage = () => {
                                     <div className='flex flex-col'>
                                         <p className='flex flex-row font-semibold justify-between mb-1'>
                                             <span className=' text-customBlue dark:text-customGold'>Workout plans</span>
-                                            <button onClick={() => setShowModal(true)}><FiPlus className='dark:bg-customGreen text-black bg-green-400 text-2xl p-1 rounded-full' /></button>
+                                            <button onClick={() => setShowPlanModal(true)}><FiPlus className='dark:bg-customGreen text-black bg-green-400 text-2xl p-1 rounded-full' /></button>
                                         </p>
 
                                         <div className='flex flex-wrap gap-1'>
@@ -234,10 +256,17 @@ const UserPage = () => {
                 </div>
             }
             <PlanCreationModal
-                show={showModal}
-                onClose={() => setShowModal(false)}
+                show={showPlanModal}
+                onClose={() => setShowPlanModal(false)}
                 plans={user?.plans}
                 onCreate={createPlan}
+            />
+            <ViewHealthDeclarationModal
+                show={showHealthDecModal}
+                onClose={() => setShowHealthDecModal(false)}
+                healthDec={healthDeclaration}
+                user={user}
+                updateUser={(data: User) => { setUser(data); toast.success("Health declaration deleted!") }}
             />
             <ToastContainer />
         </div>

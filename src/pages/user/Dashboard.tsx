@@ -7,18 +7,20 @@ import Card from '../../components/Card';
 import useTheme from '../../hooks/useTheme';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import CustomTooltip from '../../components/CustomTooltip';
-import { ToastContainer } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "/src/styles/Toast.scss";
 import Calendar from '../../components/Calendar';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const customGreen = '#9ACD32';
 const customGold = '#FFD700';
-const customBlue = '#274C77';
 
 const Dashboard = () => {
     const { currentUser } = useAuth();
     const { darkMode } = useTheme();
+    const location = useLocation();
+    const navigate = useNavigate();
     const plansAmount = currentUser.plans.length;
     const mealsAmount = currentUser.menu === null ? 0 : currentUser.menu.meals.length;
     const [completedPlans, setCompletedPlans] = useState<number>(0);
@@ -37,15 +39,24 @@ const Dashboard = () => {
         };
         getValues();
 
+        if (location.state && location.state.toastMessage) {
+            toast.success(location.state.toastMessage);
+            navigate(location.pathname, { replace: true, state: {} });
+        }
+
         return () => {
             setCompletedMeals(0)
             setCompletedPlans(0);
             setWeightList([]);
         }
-    }, [currentUser]);
+    }, [currentUser, location, navigate]);
 
     return (
         <main className='pb-2'>
+            <div className={`flex justify-between ${currentUser.healthDeclarationId && 'hidden'} bg-white  dark:bg-darkBg  rounded mb-2 px-4 p-2`}>
+                <span className='text-red-500 dark:text-customRed'>You have to fill health declaration to start the proccess</span>
+                <Link className='text-blue-600 underline' to='/user/healthDeclaration'>Fill health declaration</Link>
+            </div>
             <section className='flex flex-row h-64'>
                 <Card title='Weight progression' customClass='dashboard-card flex-grow mb-3 text-center'>
                     <ResponsiveContainer className="py-2">
@@ -68,7 +79,7 @@ const Dashboard = () => {
                             text={`${completedPlans}/${plansAmount}`}
                             styles={{
                                 path: {
-                                    stroke: `${completedPlans / plansAmount === 1 ? darkMode ? customGreen : '#00ff00' : customBlue}`,
+                                    stroke: `${completedPlans / plansAmount === 1 ? darkMode ? customGreen : '#00ff00' : 'gray'}`,
                                     strokeLinecap: 'round',
                                 },
                                 trail: {
@@ -91,7 +102,7 @@ const Dashboard = () => {
                             text={`${completedMeals}/${mealsAmount}`}
                             styles={{
                                 path: {
-                                    stroke: `${completedMeals / mealsAmount === 1 ? darkMode ? customGreen : '#00ff00' : customBlue}`,
+                                    stroke: `${completedMeals / mealsAmount === 1 ? darkMode ? customGreen : '#00ff00' : 'gray'}`,
                                     strokeLinecap: 'round',
 
                                 },
