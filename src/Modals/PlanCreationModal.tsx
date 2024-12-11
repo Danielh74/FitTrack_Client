@@ -54,9 +54,9 @@ const PlanCreationModal = ({ show, onClose, plans, onCreate }: Props) => {
     }
 
     return (
-        <Modal show={show} onClose={onClose} >
+        <Modal show={show} onClose={onClose}>
             <Modal.Header className='dark:bg-dropDownBg '><span className='text-customBlue dark:text-customGold text-2xl'>Create A Plan</span></Modal.Header>
-            <Modal.Body className='dark:bg-dropDownBg'>
+            <Modal.Body className='dark:bg-dropDownBg rounded-b'>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className='flex flex-col gap-6'>
                         <div>

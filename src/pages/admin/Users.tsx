@@ -78,7 +78,7 @@ function Users() {
                                     <td className={`px-4 py-3 ${!user.healthDeclarationId && 'dark:text-customRed text-red-500'}`}>{user.healthDeclarationId ? 'Yes' : 'No'}</td>
                                     <td className="px-4 py-3">{user.registrationDate}</td>
                                     <td>
-                                        <Dropdown className="dark:bg-dropDownBg" dismissOnClick={true} renderTrigger={() => (
+                                        <Dropdown className="dark:bg-dropDownBg border-0" dismissOnClick={true} renderTrigger={() => (
                                             <button className="hover:text-lg transition-all duration-75">
                                                 <HiDotsHorizontal />
                                             </button>

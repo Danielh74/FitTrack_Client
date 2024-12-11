@@ -10,8 +10,8 @@ const TermsAndConditionsModal = ({ show, onClose }: Props) => {
     return (
         <Modal show={show} onClose={onClose}>
             <Modal.Header className='dark:bg-dropDownBg'><span className='text-2xl text-customGold'>Terms of Service</span></Modal.Header>
-            <Modal.Body className='dark:bg-dropDownBg'>
-                <div className="space-y-6 dark:text-white">
+            <Modal.Body className='dark:bg-dropDownBg p-0 pl-5 py-1'>
+                <div className="space-y-6 dark:text-white overflow-auto h-screen">
                     <p className="text-base leading-relaxed">
                         <h2 className='font-medium'>1. Acceptance of Terms</h2>
                         By accessing or using the Website, you confirm that you:
