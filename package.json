@@ -34,6 +34,7 @@
     "react-router-dom": "^6.26.2",
     "react-toastify": "^10.0.5",
     "recharts": "^2.13.0",
+    "sass": "^1.82.0",
     "sweetalert2": "^11.6.13",
     "yup": "^1.4.0"
   },
