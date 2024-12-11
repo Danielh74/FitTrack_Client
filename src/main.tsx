@@ -1,4 +1,6 @@
 import { createRoot } from 'react-dom/client'
+import "flowbite-react";
+import "flowbite/dist/flowbite.css";
 import './index.css'
 import { RouterProvider } from 'react-router-dom'
 import { AuthProvider } from './contexts/AuthContext.tsx'

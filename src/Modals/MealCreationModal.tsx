@@ -70,7 +70,7 @@ const MealCreationModal = ({ show, onClose, menuId, meals, onCreate }: Props) =>
     return (
         <Modal show={show} onClose={onClose} >
             <Modal.Header className='dark:bg-dropDownBg'><span className='text-2xl text-customBlue dark:text-customGold'>Create Meal</span></Modal.Header>
-            <Modal.Body className='dark:bg-dropDownBg dark:text-white'>
+            <Modal.Body className='dark:bg-dropDownBg dark:text-white rounded-b'>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <main className="flex flex-col gap-5">
                         <figure>

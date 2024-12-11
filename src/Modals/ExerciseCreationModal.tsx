@@ -62,13 +62,14 @@ const ExerciseCreationModal = ({ show, onClose, muscleGroups, exercises, onCreat
 
     return (
         <Modal
+            position='bottom-center'
             show={show}
             onClose={() => {
                 onClose();
                 reset();
             }}>
-            <Modal.Header className='dark:bg-dropDownBg' ><span className='text-customBlue dark:text-customGold text-2xl'>Create Exercise</span></Modal.Header>
-            <Modal.Body className='dark:bg-dropDownBg'>
+            <Modal.Header className='dark:bg-dropDownBg'><span className='text-customBlue dark:text-customGold text-2xl'>Create Exercise</span></Modal.Header>
+            <Modal.Body className='dark:bg-dropDownBg rounded-b'>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <main className="flex flex-col gap-5 ">
                         <div>

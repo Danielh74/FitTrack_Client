@@ -111,7 +111,7 @@ function Navbar() {
                             </NavLink>
 
                         </ul>}
-                    <Dropdown className='dark:bg-black' dismissOnClick={true} renderTrigger={() => <button className='pe-2'><HiUserCircle color='' className='w-10 h-10 hover:text-customBlue dark:hover:text-customGold' /></button>}>
+                    <Dropdown className='dark:bg-black border-0' dismissOnClick={true} renderTrigger={() => <button className='pe-2'><HiUserCircle color='' className='w-10 h-10 hover:text-customBlue dark:hover:text-customGold' /></button>}>
                         <span className='flex justify-center pt-1 text-md' >{currentUser.firstName} {currentUser.lastName} </span>
                         <span className='flex justify-center pb-2 text-xs' >{currentUser.email}</span>
                         <Dropdown.Item icon={HiChartPie} className="md:hidden dropdown-item"><NavLink to={`/${isAdmin ? "admin" : "user"}/dashboard`}>Dashboard</NavLink></Dropdown.Item>
