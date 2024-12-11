@@ -19,89 +19,54 @@ type UpdateMeal = {
 }
 
 
-const getAllMenus = () => {
-    return axios.get(`${baseUrl}/menus/admin`, {
+const getAllMenus = () =>
+    axios.get(`${baseUrl}/menus/admin`, {
         headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
-    }).then((response) => {
-        return response;
-    }).catch((error) => {
-        throw error;
     });
-};
 
-const getMenu = (userId: number) => {
-    return axios.get(`${baseUrl}/menus/${userId}`, {
+const getMenu = (userId: number) =>
+    axios.get(`${baseUrl}/menus/${userId}`, {
         headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
-    }).then((response) => {
-        return response;
-    }).catch((error) => {
-        throw error;
     });
-};
 
-const createMenu = (id: number) => {
-    return axios.post(`${baseUrl}/menus/admin`, { userId: id }, {
+const createMenu = (id: number) =>
+    axios.post(`${baseUrl}/menus/admin`, { userId: id }, {
         headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
-    }).then((response) => {
-        return response;
-    }).catch((error) => {
-        throw error;
     });
-};
 
-const deleteMenu = (id: number) => {
-    return axios.delete(`${baseUrl}/menus/admin/${id}`, {
+const deleteMenu = (id: number) =>
+    axios.delete(`${baseUrl}/menus/admin/${id}`, {
         headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
-    }).then((response) => {
-        return response;
-    }).catch((error) => {
-        throw error;
     });
-};
 
-const createMeal = (meal: CreateMeal) => {
-    return axios.post(`${baseUrl}/meals/admin`, meal, {
+const createMeal = (meal: CreateMeal) =>
+    axios.post(`${baseUrl}/meals/admin`, meal, {
         headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
-    }).then((response) => {
-        return response;
-    }).catch((error) => {
-        throw error;
     });
-};
 
-const updateMeal = (id: number, meal: UpdateMeal) => {
-    return axios.put(`${baseUrl}/meals/${id}`, meal, {
+const updateMeal = (id: number, meal: UpdateMeal) =>
+    axios.put(`${baseUrl}/meals/${id}`, meal, {
         headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
-    }).then((response) => {
-        return response;
-    }).catch((error) => {
-        throw error;
     });
-};
 
-const deleteMeal = (id: number) => {
-    return axios.delete(`${baseUrl}/meals/admin/${id}`, {
+const deleteMeal = (id: number) =>
+    axios.delete(`${baseUrl}/meals/admin/${id}`, {
         headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
-    }).then((response) => {
-        return response;
-    }).catch((error) => {
-        throw error;
     });
-};
 
 
 

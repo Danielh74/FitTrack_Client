@@ -27,7 +27,7 @@ function AdminProvider({ children }: { children: ReactNode }) {
         const fetchAllUsers = () => {
             setIsLoading(true);
             auth.getAllUsers().then((response) => {
-                setUsers(response);
+                setUsers(response.data);
             }).catch((error) => {
                 const errorMsg = handleApiErrors(error);
                 dialogs.errorAlert(errorMsg);

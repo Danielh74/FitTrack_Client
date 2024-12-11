@@ -18,40 +18,25 @@ type newHealthDec = {
     isPregnant?: boolean,
 }
 
-const getHealthDecByUserId = (userId: number) => {
-    return axios.get(`${baseUrl}/healthDeclarations/admin/user/${userId}`, {
+const getHealthDecByUserId = (userId: number) =>
+    axios.get(`${baseUrl}/healthDeclarations/admin/user/${userId}`, {
         headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
-    }).then((response) => {
-        return response;
-    }).catch((error) => {
-        throw error;
     });
-};
 
-const createHealthDec = (data: newHealthDec) => {
-    return axios.post(`${baseUrl}/healthDeclarations/admin`, data, {
+const createHealthDec = (data: newHealthDec) =>
+    axios.post(`${baseUrl}/healthDeclarations/admin`, data, {
         headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`
         },
-    }).then((response) => {
-        return response;
-    }).catch((error) => {
-        throw error;
     });
-};
 
-const deleteHealthDec = (id: number) => {
-    return axios.delete(`${baseUrl}/healthDeclarations/admin/${id}`, {
+const deleteHealthDec = (id: number) =>
+    axios.delete(`${baseUrl}/healthDeclarations/admin/${id}`, {
         headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
-    }).then((response) => {
-        return response;
-    }).catch((error) => {
-        throw error;
     });
-};
 
 export const healthDecService = { getHealthDecByUserId, createHealthDec, deleteHealthDec };

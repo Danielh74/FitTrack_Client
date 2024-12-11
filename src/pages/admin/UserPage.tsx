@@ -36,7 +36,7 @@ const UserPage = () => {
         const fetchUser = () => {
             setIsLoading(true);
             auth.getUserInfo(userId).then((response) => {
-                setUser(response);
+                setUser(response.data);
             }).catch((error) => {
                 const errorMsg = handleApiErrors(error);
                 toast.error(errorMsg);
