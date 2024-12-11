@@ -74,7 +74,7 @@ function ExercisesManagement() {
                             <th className="flex justify-center py-3">
                                 <Dropdown
                                     dismissOnClick={true}
-                                    className="dark:bg-dropDownBg border-0"
+                                    className="dark:bg-dropDownBg"
                                     renderTrigger={() =>
                                         <button className="flex items-center gap-2">{selectedMuscleGroup ? selectedMuscleGroup : "Muscle groups"}
                                             <IoIosArrowDown color="white" />

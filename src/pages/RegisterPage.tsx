@@ -170,7 +170,7 @@ function RegisterPage() {
                             </div>
                             <div className="ml-3 text-sm flex flex-row gap-1">
                                 <label className="font-medium text-black dark:text-white">I accept the</label>
-                                <button type="button" onClick={() => setShowModal(true)} className="font-medium text-blue-600 hover:underline dark:text-customGold"> Terms and Conditions</button>
+                                <button onClick={() => setShowModal(true)} className="font-medium text-blue-600 hover:underline dark:text-customGold"> Terms and Conditions</button>
                             </div>
                         </div>
                         {errors.agreedToTerms && <div className="text-red-500 dark:text-customRed text-sm flex flex-row">{errors.agreedToTerms.message}</div>}

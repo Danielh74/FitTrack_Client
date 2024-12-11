@@ -163,7 +163,7 @@ function UserMenu() {
                                 <Card key={meal.id} customClass="border mt-3">
                                     <div className="flex flex-row justify-between font-medium">
                                         <h2 className="text-xl font-semibold">{meal.name}</h2>
-                                        <Dropdown className="dark:bg-dropDownBg border-0" dismissOnClick={true} renderTrigger={() => <button className="hover:text-lg transition-all duration-75"><HiDotsVertical /></button>}>
+                                        <Dropdown className="dark:bg-[#2E2E2E]" dismissOnClick={true} renderTrigger={() => <button className="hover:text-lg transition-all duration-75"><HiDotsVertical /></button>}>
                                             <Dropdown.Item icon={FaRegEdit} className="dropdown-item" onClick={() => openForm(meal)}>Edit</Dropdown.Item>
                                             <Dropdown.Divider />
                                             <Dropdown.Item icon={MdDelete} className="dropdown-logout" onClick={() => deleteItem("meal", handleMealDelete, meal.id)}>Delete</Dropdown.Item>
