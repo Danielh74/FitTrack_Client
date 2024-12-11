@@ -24,11 +24,22 @@ type LoginProps = {
 
 const baseUrl = import.meta.env.VITE_BASE_URL + "/accounts";
 
-const register = (registerInputs) =>
-    axios.post(`${baseUrl}/register`, registerInputs);
+const register = (registerInputs) => {
 
-const login = ({ email, password }: LoginProps) =>
-    axios.post(`${baseUrl}/login`, { email, password });
+    return axios.post(`${baseUrl}/register`, registerInputs).then((response) => {
+        return response
+    }).catch((error) => {
+        throw error;
+    });
+};
+const login = ({ email, password }: LoginProps) => {
+
+    return axios.post(`${baseUrl}/login`, { email, password }).then((response) => {
+        return response.data
+    }).catch((error) => {
+        throw error;
+    });
+};
 
 const getUserInfo = (id: number) => {
     const token = localStorage.getItem("token");
@@ -39,6 +50,10 @@ const getUserInfo = (id: number) => {
         headers: {
             Authorization: `Bearer ${token}`
         }
+    }).then((response) => {
+        return response.data
+    }).catch((error) => {
+        throw error;
     });
 };
 
@@ -48,29 +63,45 @@ const getCurrentUser = (token: string) => {
         headers: {
             Authorization: `Bearer ${token}`
         }
+    }).then((response) => {
+        return response.data;
+    }).catch((error) => {
+        throw error;
     });
 };
 
-const getAllUsers = () =>
-    axios.get(`${baseUrl}/admin`, {
+const getAllUsers = () => {
+    const token = localStorage.getItem("token");
+    return axios.get(`${baseUrl}/admin`, {
         headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`
+            Authorization: `Bearer ${token}`
         }
+    }).then((response) => {
+        return response.data;
+    }).catch((error) => {
+        throw error;
     });
+};
 
-const updateCurrentUser = (updatedUser: updatedUserProps) =>
-    axios.put(`${baseUrl}`, updatedUser, {
+const updateCurrentUser = (updatedUser: updatedUserProps) => {
+    return axios.put(`${baseUrl}`, updatedUser, {
         headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
     });
+};
 
-const deleteUser = (userId: number) =>
-    axios.delete(`${baseUrl}/admin/${userId}`, {
+const deleteUser = (userId: number) => {
+    return axios.delete(`${baseUrl}/admin/${userId}`, {
         headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
+    }).then((response) => {
+        return response;
+    }).catch((error) => {
+        throw error;
     });
+};
 
 export const auth = { register, login, getUserInfo, getCurrentUser, getAllUsers, updateCurrentUser, deleteUser }
 
