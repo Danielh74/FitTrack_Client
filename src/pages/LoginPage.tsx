@@ -38,7 +38,7 @@ const LoginPage = () => {
 
         auth.login(data).then((response) => {
             toast.success("Login Successful");
-            handleLogin(response.token, response.user);
+            handleLogin(response.data.token, response.data.user);
         }).catch((error) => {
             const errorMsg = handleApiErrors(error);
             toast.error(errorMsg);

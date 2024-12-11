@@ -41,11 +41,11 @@ function AuthProvider({ children }: Props) {
     useEffect(() => {
         const fetchUserData = (storedToken) => {
             auth.getCurrentUser(storedToken)
-                .then((userData) => {
+                .then((response) => {
                     setToken(storedToken);
                     const payload: TokenPayload = jwtDecode<TokenPayload>(storedToken);
                     setIsAdmin(payload.role && payload.role === "Admin")
-                    setCurrentUser(userData);
+                    setCurrentUser(response.data);
                 })
                 .catch((error) => {
                     const errorMsg = handleApiErrors(error);

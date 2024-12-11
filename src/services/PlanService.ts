@@ -63,64 +63,36 @@ const createPlan = (userId: number, name: string) => {
         });
 };
 
-const updatePlanComplete = ({ id, name, isCompleted }: UpdatedPlanProps) => {
-    return axios.put(`${baseUrl}/plans/${id}`,
-        { name: name, isCompleted: isCompleted },
+const updatePlanComplete = (updatedPlan: UpdatedPlanProps) =>
+    axios.put(`${baseUrl}/plans/${updatedPlan.id}`, updatedPlan,
         {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,
             },
-        }).then((response) => {
-            return response;
-        }).catch((error) => {
-            throw error;
         });
-};
 
-const updatePlanExercise = ({ id, orderInPlan, reps, sets, previousWeight, currentWeight }: UpdatedPlanExercise) => {
-    return axios.put(`${baseUrl}/plandetails/${id}`,
-        {
-            orderInPlan: orderInPlan,
-            reps: reps,
-            sets: sets,
-            previousWeight: previousWeight,
-            currentWeight: currentWeight
-        },
+const updatePlanExercise = (updatedPlanExercise: UpdatedPlanExercise) =>
+    axios.put(`${baseUrl}/plandetails/${updatedPlanExercise.id}`, updatedPlanExercise,
         {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,
             },
-        }).then((response) => {
-            return response;
-        }).catch((error) => {
-            throw error;
         });
-};
 
-const createPlanExercise = (planExercise: CreatePlanExercise) => {
-    return axios.post(`${baseUrl}/plandetails/admin`, planExercise,
+const createPlanExercise = (planExercise: CreatePlanExercise) =>
+    axios.post(`${baseUrl}/plandetails/admin`, planExercise,
         {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,
             },
-        }).then((response) => {
-            return response;
-        }).catch((error) => {
-            throw error;
         });
-};
 
-const deletePlanExercise = (id: number) => {
-    return axios.delete(`${baseUrl}/plandetails/admin/${id}`,
+const deletePlanExercise = (id: number) =>
+    axios.delete(`${baseUrl}/plandetails/admin/${id}`,
         {
             headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,
             },
-        }).then((response) => {
-            return response;
-        }).catch((error) => {
-            throw error;
         });
-};
 
 export const planService = { updatePlanComplete, getPlan, deletePlan, updatePlanExercise, createPlanExercise, deletePlanExercise, createPlan }
