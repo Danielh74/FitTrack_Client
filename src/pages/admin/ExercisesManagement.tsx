@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { ChangeEvent, useEffect, useRef, useState } from "react"
 import { exerciseService } from "../../services/ExerciseService";
 import { Exercise, MuscleGroup } from "../../models/Plan";
 import { toast, ToastContainer } from "react-toastify";
@@ -11,6 +11,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import "/src/styles/Toast.scss";
 import { FaRegCirclePlay } from "react-icons/fa6";
 import ExerciseVideoModal from "../../Modals/ExerciseVideoModal";
+import { FiPlus } from "react-icons/fi";
 
 function ExercisesManagement() {
     const [exercises, setExercises] = useState<Exercise[]>([]);
@@ -20,6 +21,7 @@ function ExercisesManagement() {
     const [showModal, setShowModal] = useState(false);
     const [openVideo, setOpenVideo] = useState(false);
     const [videoURL, setVideoURL] = useState("");
+    const fileInputRefs = useRef<{ [key: number]: HTMLInputElement | null }>({});
 
     useEffect(() => {
         setIsLoading(true);
@@ -43,6 +45,28 @@ function ExercisesManagement() {
         const updatedExercises = [...exercises, exercise];
         setExercises(updatedExercises);
         toast.success("Exercise created successfully!");
+    };
+
+    const handleFileChange = (e: ChangeEvent<HTMLInputElement>, exercise: Exercise) => {
+        const videoFile = e.target.files[0];
+        if (videoFile) {
+            const dataToUpdate = {
+                id: exercise.id,
+                name: exercise.name,
+                muscleGroupName: exercise.muscleGroupName,
+                videoFile: videoFile
+            }
+
+            exerciseService.updateExercise(dataToUpdate)
+                .then(response => {
+                    const updatedEx: Exercise = response.data;
+                    setExercises(exercises.map(ex => (ex.id === updatedEx.id ? updatedEx : ex)));
+                    toast.success("Exercise updated successfully");
+                }).catch(err => {
+                    const errorMsg = handleApiErrors(err);
+                    toast.error(errorMsg);
+                })
+        }
     };
 
     const handleExerciseDelete = (id: number) => {
@@ -103,9 +127,24 @@ function ExercisesManagement() {
                                         {ex.name}
                                     </td>
                                     <td className="px-4 py-3 text-xl justify-items-center">
-                                        <button onClick={() => { setOpenVideo(true); setVideoURL(ex.videoURL) }}>
-                                            <FaRegCirclePlay />
-                                        </button>
+                                        {ex.videoURL ?
+                                            <button onClick={() => { setOpenVideo(true); setVideoURL(ex.videoURL) }}>
+                                                <FaRegCirclePlay />
+                                            </button>
+                                            :
+                                            <div className="flex">
+                                                <input
+                                                    type="file"
+                                                    accept='video/*'
+                                                    id={`file-input-${ex.id}`}
+                                                    ref={(el) => (fileInputRefs.current[ex.id] = el)}
+                                                    onChange={(e: ChangeEvent<HTMLInputElement>) => handleFileChange(e, ex)}
+                                                    className="hidden" />
+                                                <button onClick={() => fileInputRefs.current[ex.id]?.click()} >
+                                                    <FiPlus />
+                                                </button>
+                                            </div>
+                                        }
                                     </td>
                                     <td>
                                         <button onClick={() => deleteItem("exercise", handleExerciseDelete, ex.id)}>
@@ -115,30 +154,44 @@ function ExercisesManagement() {
                                 </tr>
 
                             )
-                            : muscleGroups.map((mg) => (
-                                exercises.map(ex => ex.muscleGroupName === mg.name &&
-                                    <tr
-                                        key={ex.id}
-                                        className="odd:bg-white even:bg-gray-100 odd:dark:bg-mediumBg even:dark:bg-darkBg border-t dark:border-black"
-                                    >
-                                        <td className="px-4 py-3">
-                                            {ex.muscleGroupName}
-                                        </td>
-                                        <td className="px-4 py-3">
-                                            {ex.name}
-                                        </td>
-                                        <td className="px-4 py-3 text-xl justify-items-center">
-                                            <button className={`${!ex.videoURL && 'hidden'}`} onClick={() => { setOpenVideo(true); setVideoURL(ex.videoURL) }}>
+                            : exercises.map(ex =>
+                                <tr
+                                    key={ex.id}
+                                    className="odd:bg-white even:bg-gray-100 odd:dark:bg-mediumBg even:dark:bg-darkBg border-t dark:border-black"
+                                >
+                                    <td className="px-4 py-3">
+                                        {ex.muscleGroupName}
+                                    </td>
+                                    <td className="px-4 py-3">
+                                        {ex.name}
+                                    </td>
+                                    <td className="flex justify-center px-4 py-3 text-xl justify-items-center">
+                                        {ex.videoURL ?
+                                            <button onClick={() => { setOpenVideo(true); setVideoURL(ex.videoURL) }}>
                                                 <FaRegCirclePlay />
                                             </button>
-                                        </td>
-                                        <td>
-                                            <button onClick={() => deleteItem("exercise", handleExerciseDelete, ex.id)}>
-                                                <MdDelete className="text-xl hover:text-2xl hover:text-customRed transition-all duration-75" />
-                                            </button>
-                                        </td>
-                                    </tr>
-                                )))}
+                                            :
+                                            <div className="flex">
+                                                <input
+                                                    type="file"
+                                                    accept='video/*'
+                                                    id={`file-input-${ex.id}`}
+                                                    ref={(el) => (fileInputRefs.current[ex.id] = el)}
+                                                    onChange={(e: ChangeEvent<HTMLInputElement>) => handleFileChange(e, ex)}
+                                                    className="hidden" />
+                                                <button onClick={() => fileInputRefs.current[ex.id]?.click()} >
+                                                    <FiPlus />
+                                                </button>
+                                            </div>
+                                        }
+                                    </td>
+                                    <td>
+                                        <button onClick={() => deleteItem("exercise", handleExerciseDelete, ex.id)}>
+                                            <MdDelete className="text-xl hover:text-2xl hover:text-customRed transition-all duration-75" />
+                                        </button>
+                                    </td>
+                                </tr>
+                            )}
                     </tbody>
                 </table>
             </div>

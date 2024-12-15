@@ -8,6 +8,13 @@ type newExercise = {
     videoFile?: File;
 }
 
+type updatedExercise = {
+    id: number
+    name: string;
+    muscleGroupName: string;
+    videoFile: File;
+}
+
 const getAllExercises = () =>
     axios.get(`${baseUrl}/exercises/admin`, {
         headers: {
@@ -23,6 +30,16 @@ const createExercise = (data: newExercise) =>
         },
     });
 
+const updateExercise = (data: updatedExercise) =>
+    axios.post(`${baseUrl}/exercises/admin/${data.id}`,
+        { name: data.name, muscleGroupName: data.muscleGroupName, videoFile: data.videoFile },
+        {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`,
+                "Content-Type": "multipart/form-data"
+            },
+        });
+
 const deleteExercise = (id: number) =>
     axios.delete(`${baseUrl}/exercises/admin/${id}`, {
         headers: {
@@ -37,4 +54,4 @@ const getAllMuscleGroups = () =>
         },
     });
 
-export const exerciseService = { getAllExercises, getAllMuscleGroups, createExercise, deleteExercise };
+export const exerciseService = { getAllExercises, getAllMuscleGroups, createExercise, updateExercise, deleteExercise };
