@@ -177,7 +177,7 @@ const Profile = () => {
                                     </span>
                                 </div>
                                 <div className="hidden sm:flex">
-                                    <img src={bodyImage} alt="body" className="body-img" />
+                                    <img src={bodyImage} alt="Full muscle body image" className="body-img" />
                                 </div>
                                 <div className="flex gap-4 sm:gap-0 flex-col">
                                     <span className="flex sm:mt-28 border-b-2 border-black">

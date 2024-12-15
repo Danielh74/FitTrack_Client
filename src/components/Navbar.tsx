@@ -138,6 +138,7 @@ function Navbar() {
                 <div className="flex items-center w-full justify-end">
                     <div className=' sm:hidden pr-5 text-2xl hover:cursor-pointer'>
                         <Dropdown dismissOnClick={false} className='dark:bg-black' renderTrigger={() => <span><LuMenu className='hover:dark:text-customGold' /></span>}>
+                            <Dropdown.Item className="dropdown-item justify-center"><NavLink to="/about">About</NavLink></Dropdown.Item>
                             <Dropdown.Item className="dropdown-item justify-center"><NavLink to="/login">Login</NavLink></Dropdown.Item>
                             <Dropdown.Item className="dropdown-item justify-center"><NavLink to="/register">Register</NavLink></Dropdown.Item>
                             <Dropdown.Item icon={darkMode ? FaSun : FaMoon} onClick={toggle} className='dropdown-item'>{darkMode ? "Light" : "Dark"} theme</Dropdown.Item>
@@ -145,6 +146,7 @@ function Navbar() {
                     </div>
 
                     <ul className='hidden sm:flex gap-3'>
+                        <NavLink to="/about" className="hover:text-customBlue dark:text-white dark:hover:text-customGold self-center">About</NavLink>
                         <NavLink to="/login" className="hover:text-customBlue dark:text-white dark:hover:text-customGold self-center">Login</NavLink>
                         <NavLink to="/register" className="hover:text-customBlue dark:text-white dark:hover:text-customGold self-center">Register</NavLink>
                         <button onClick={toggle} className='pr-2 hover:text-customBlue dark:text-white dark:hover:text-customGold'>{darkMode ? <FaSun /> : <FaMoon />}</button>

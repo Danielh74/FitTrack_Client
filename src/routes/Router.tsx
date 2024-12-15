@@ -19,6 +19,7 @@ import UserPlan from "../pages/admin/UserPlan";
 import UserMenu from "../pages/admin/UserMenu";
 import ExercisesManagement from "../pages/admin/ExercisesManagement";
 import HealthDeclarationPage from "../pages/user/HealthDeclarationPage";
+import AboutPage from "../pages/AboutPage";
 
 export const router = createBrowserRouter([
     {
@@ -26,6 +27,7 @@ export const router = createBrowserRouter([
             {
                 path: "/", element: <NotAuthRoute><LandingPage /></NotAuthRoute>, children: [
                     { path: "/", element: <Home /> },
+                    { path: "/about", element: <AboutPage /> },
                     { path: "/login", element: <LoginPage /> },
                     { path: "/register", element: <RegisterPage /> },
                 ]
