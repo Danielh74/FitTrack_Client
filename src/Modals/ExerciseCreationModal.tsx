@@ -85,7 +85,7 @@ const ExerciseCreationModal = ({ show, onClose, muscleGroups, exercises, onCreat
                             {errors.name && <div className='dark:text-customRed'>{errors.name.message}</div>}
                         </div>
                         <div>
-                            <input type='file' accept='video/*' placeholder='Exercise example video' {...register("videoFile")} />
+                            <input type='file' accept='video/*' {...register("videoFile")} />
                             {errors.videoFile && <div className="dark:text-customRed">{errors.videoFile.message}</div>}
                         </div>
 
