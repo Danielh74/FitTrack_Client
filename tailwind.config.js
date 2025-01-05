@@ -6,7 +6,7 @@ export default {
   content: [
     "./index.html",
     "./src/**/*.{html,js,ts,jsx,tsx}",
-    flowbite.content(),
+    flowbite.content()
   ],
   theme: {
     extend: {
