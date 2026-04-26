@@ -1,26 +1,26 @@
 FitTrack is a web application designed to help users achieve a healthy lifestyle by providing personalized workout plans and nutritional menus. The app bridges the gap between users and personal trainers, allowing trainers to create and manage plans remotely while users can track their progress conveniently.
 
-Features:
-User Section:
+## Features:
+## User Section:
 - View personalized workout plans and nutritional menus.
 - Update body measurements (e.g., weight, circumferences, body fat percentage).
 - Track progress over time through dynamic updates.
  -Flexible and intuitive interface to support users of all skill levels.
-Admin/Trainer Section:
-Manage user plans and menus:
+## Admin/Trainer Section:
+## Manage user plans and menus:
 - Create, edit, and delete workout plans and nutritional menus.
 - View and update user data.
 - View application statistics:
 - Track the number of users, user registrations by month and the division between male and females trainees.
 
-Technologies Used:
+## Technologies Used:
 Backend: ASP.NET Web API, SQL Server
 Frontend: React, Vite, TypeScript, Tailwind CSS
 Other Tools: Axios (API calls), React Router (routing), Toast (notifications).
 
-Usage Instructions
+## Usage Instructions
 
-User Section
+## User Section
 Register:
 - Users can register by providing their basic information and agreeing to the terms.
 Log In:
@@ -33,7 +33,7 @@ Update Measurements:
 Track Progress:
 - View changes over time to stay motivated and track improvements.
   
-Admin/Trainer Section
+## Admin/Trainer Section
 Log In:
 -Log in using admin credentials provided during setup. (email: a@gmail.com, password: #Aa123456)
 Manage Users:
@@ -45,3 +45,12 @@ Create Plans and Menus:
 - Use the Menu Editor to manage nutritional recommendations.
 View Statistics:
 -Access the Statistics Dashboard to see site-wide metrics, including user count and more statistics.
+
+## Screenshots
+(Add screenshots)
+
+## Demo Video
+Add Loom link
+
+## Author
+Daniel Hazan
