@@ -70,10 +70,8 @@ User's Profile
 
 ## Demo Videos
 <video width="320" height="180" src="https://github.com/user-attachments/assets/9baf5ecf-e720-4b3a-ab46-44d05cac5795"/>
-https://github.com/user-attachments/assets/9baf5ecf-e720-4b3a-ab46-44d05cac5795
 
-https://github.com/user-attachments/assets/0852cb8a-58ea-4dc2-94b6-d4eaf7401edc
-
+<video width="320" height="180" src="https://github.com/user-attachments/assets/0852cb8a-58ea-4dc2-94b6-d4eaf7401edc"/>
 
 ## Author
 Daniel Hazan
