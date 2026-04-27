@@ -70,13 +70,11 @@ User's Profile
 
 ## Demo Videos
 
-<h3>User Demo</h3>
-<video src="https://www.loom.com/share/52780a6f0e544496938ac85bf50daf03" controls width="700"></video>
+User Demo
+https://www.loom.com/share/52780a6f0e544496938ac85bf50daf03
 
-<br><br>
-
-<h3>Admin Demo</h3>
-<video src="https://www.loom.com/share/511e18bb0b264e7e9cc65b223cf9c479" controls width="700"></video>
+Admin Demo
+https://www.loom.com/share/511e18bb0b264e7e9cc65b223cf9c479
 
 
 ## Author
