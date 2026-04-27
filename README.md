@@ -47,7 +47,8 @@ View Statistics:
 -Access the Statistics Dashboard to see site-wide metrics, including user count and more statistics.
 
 ## Screenshots
-(Add screenshots)
+<img width="1916" height="906" alt="FitTrack_Home" src="https://github.com/user-attachments/assets/2a84e015-8df7-446b-9b3d-625fe309fb0d" />
+
 
 ## Demo Video
 Add Loom link
