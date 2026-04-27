@@ -69,9 +69,15 @@ User's Profile
 
 
 ## Demo Videos
-<video width="320" height="180" src="https://github.com/user-attachments/assets/9baf5ecf-e720-4b3a-ab46-44d05cac5795"/>
 
-<video width="320" height="180" src="https://github.com/user-attachments/assets/0852cb8a-58ea-4dc2-94b6-d4eaf7401edc"/>
+<h3>User Demo</h3>
+<video src="https://www.loom.com/share/52780a6f0e544496938ac85bf50daf03" controls width="700"></video>
+
+<br><br>
+
+<h3>Admin Demo</h3>
+<video src="https://www.loom.com/share/511e18bb0b264e7e9cc65b223cf9c479" controls width="700"></video>
+
 
 ## Author
 Daniel Hazan
