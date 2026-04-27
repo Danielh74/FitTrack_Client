@@ -47,7 +47,7 @@ View Statistics:
 -Access the Statistics Dashboard to see site-wide metrics, including user count and more statistics.
 
 ## Screenshots
-<img width="400" height="300" alt="FitTrack_Home" src="https://github.com/user-attachments/assets/2aed669e-738a-46ed-a934-48d29fcefcd1" />
+<img width="320" height="180" alt="FitTrack_Home" src="https://github.com/user-attachments/assets/2aed669e-738a-46ed-a934-48d29fcefcd1" />
 <img width="400" height="300" alt="FitTrack_Signup" src="https://github.com/user-attachments/assets/2092ff19-ba9f-47b4-9bf5-0d9a9c657d06" />
 <img width="400" height="300" alt="FitTrack_AdminDashboard" src="https://github.com/user-attachments/assets/23f67205-1744-4475-8425-04ee34c733b3" />
 <img width="400" height="300" alt="FitTrack_AdminUsersList" src="https://github.com/user-attachments/assets/f18f36d0-9c7d-46b0-aa98-d56aaf1fda98" />
